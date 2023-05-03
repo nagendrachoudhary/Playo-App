@@ -1,11 +1,12 @@
 const Jwt  = require("jsonwebtoken");
 const user = require("../models/user.models");
 const bcrypt =require('bcryptjs')
+const key="kghdgbkhybmbjdgbfjhmnenbvctftsadyasfagdfkjh"
 function jwtoken(data){
-    let token=Jwt.sign(data,"narenchoudhary")
-    console.log(token)
+    let token=Jwt.sign(data,key)
     return token
 }
+
 async function signup(userdata){
         const pass =await bcrypt.hash(userdata.password,10)
         userdata={...userdata,password:pass}
@@ -25,6 +26,7 @@ if(userdata.username&&userdata.password){
   if(users){
     if(bcrypt.compareSync(userdata.password,users.password)){
         userdata={...userdata,password:users.password}
+        console.log(typeof(userdata))
         let token = jwtoken(userdata)
        return token
     }

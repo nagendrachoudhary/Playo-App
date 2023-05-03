@@ -1,8 +1,11 @@
-import { Box, Image } from '@chakra-ui/react';
-import React from 'react';
+import { Box, Image, Text } from '@chakra-ui/react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext, AuthContextProvider } from '../Context/Auth';
 
 function Navbar(props) {
+    const {user,logout} =useContext(AuthContext)
+    console.log(user)
     return (
         <Box bg={'lightgray'} width={'100%'} height={'50px'} position={'sticky'} alignItems={'center'} display={'flex'} justifyContent={'space-between'} top={'0'} right={'0'}>
             <Box>
@@ -10,7 +13,8 @@ function Navbar(props) {
             </Box>
             <Box alignItems={'center'} display={'flex'} gap={'30px'} pr={'30px'}>
                <Link to={'/'}>Home</Link>
-               <Link to={'/login'}>Login</Link>
+               {user==null?<Link to={'/login'}>Login</Link>:<Text onClick={()=>{logout()}}>Logout</Text>}
+               {user?<Text>{user.username}</Text>:null}
             </Box>
         </Box>
     );
