@@ -26,7 +26,6 @@ if(userdata.username&&userdata.password){
   if(users){
     if(bcrypt.compareSync(userdata.password,users.password)){
         userdata={...userdata,password:users.password}
-        console.log(typeof(userdata))
         let token = jwtoken(userdata)
        return token
     }

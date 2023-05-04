@@ -1,4 +1,5 @@
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const user = require('../models/user.models');
 const key="kghdgbkhybmbjdgbfjhmnenbvctftsadyasfagdfkjh"
 async function auth(req, res, next) {
 
@@ -7,11 +8,10 @@ async function auth(req, res, next) {
         token = token.slice(1, -1);
         try {
             if (token) {
-                console.log(token)
-                  jwt.verify(token,key); // throws error if invalid token
-    
-                const user = jwt.decode(token);
-                req.user = user;
+                jwt.verify(token,key); // throws error if invalid token
+                const users = jwt.decode(token);
+                const newuser =await user.findOne({username:users.username})
+                req.user = newuser;
                 next();
             }
 

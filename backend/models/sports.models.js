@@ -11,6 +11,7 @@ const Schema = new mongoose.Schema({
     sports:{type:String,require:true},
     joinedplayer:{type:Array,default:[]},
     requests:{type:Array,default:[]},
+    active:{type:Boolean,default:false},
     owner:{
         username:{type:String,require:true},
         id:{type:String,require:true}
