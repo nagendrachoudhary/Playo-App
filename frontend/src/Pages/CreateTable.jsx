@@ -26,8 +26,8 @@ function CreateTable(props) {
         <datalist id="citys">
           <option value="jaipur">Jaipur</option>
           <option value="pune">pune</option>
-          <option value="Mumbai">Mumbai</option>
-          <option value="Delhi">Delhi</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="delhi">Delhi</option>
         </datalist>
         
         <Input onChange={(event)=>{handlechange(event)}} name='img' placeholder="image url" list="ground"></Input>

@@ -1,4 +1,5 @@
 import axios from 'axios'
+const newurl='https://playo-82j6.onrender.com'
 axios.defaults.baseURL = 'http://localhost:8080';
 axios.defaults.headers.common['token'] = localStorage.getItem('token');
 axios.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';

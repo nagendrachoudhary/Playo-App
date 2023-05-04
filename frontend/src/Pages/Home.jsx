@@ -24,9 +24,9 @@ function Home(props) {
   }, [input,city,active,Rating]);
   return (
     <Box>
-      <HStack w={"100%"}>
+      <HStack w={"100%"} justifyContent={'space-between'}>
         <Box>
-        <Input onChange={(event)=>{setinput(event.target.value)}}></Input>
+        <Input placeholder="search sports name" type='search' onChange={(event)=>{setinput(event.target.value)}}></Input>
         </Box>
         <Box>
         <Select onChange={(event)=>{setactive(event.target.value)}} placeholder="Select option">
@@ -38,8 +38,8 @@ function Home(props) {
         <Select onChange={(event)=>{setcity(event.target.value)}} placeholder="City">
           <option value="jaipur">Jaipur</option>
           <option value="pune">pune</option>
-          <option value="Mumbai">Mumbai</option>
-          <option value="Delhi">Delhi</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="delhi">Delhi</option>
         </Select>
         </Box>
         <HStack>

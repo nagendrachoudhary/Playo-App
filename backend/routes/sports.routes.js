@@ -38,7 +38,7 @@ sportsRouter.get('/sports',async(req,res)=>{
         let query=req.query
         let alltables = await sports
         .find({
-          ...(query.city !== "All" && { city: query.city }),
+          ...(query.city !== "All" && { city:{ $regex: new RegExp(query.city, "i") } }),
           ...(query.game !== "All" && { sports: { $regex: new RegExp(query.game, "i") } }),
           ...(query.active !== "All" && { active: query.active })
         }).sort({...(query.rating == "Random"?{time:1}:{ rating: query.rating })})
