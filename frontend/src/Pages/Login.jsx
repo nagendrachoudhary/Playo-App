@@ -7,12 +7,12 @@ function Login(props) {
   const [Page, setPage] = useState("Login");
   const [Login, setLogin] = useState({});
   const [Signup, setSignup] = useState({});
+  const { login } = useContext(AuthContext);
   const toast = useToast()
+  const navigate=useNavigate()
   const handleChange = (event) => {
     setLogin({ ...Login, [event.target.name]: event.target.value });
   };
-const navigate=useNavigate()
-  const { login } = useContext(AuthContext);
   const handlesubmit = () => {
     login(Login).then(()=>{
      navigate('/')
@@ -21,6 +21,7 @@ const navigate=useNavigate()
   const handleChangesignup = (event) => {
     setSignup({ ...Signup, [event.target.name]: event.target.value });
   };
+  console.log(Login)
   const handlesubmitCreate = () => {
     CreateAccount({ ...Signup })
       .then((res) => {
@@ -58,17 +59,19 @@ const navigate=useNavigate()
         flexDirection={"column"}
         w={"400px"}
         h={"400px"}
-        position={"relative"}>
-        <Text as={"b"} position={"absolute"} fontSize={"4xl"} top={"10"}>
+        >
+        <Text as={"b"} fontSize={"4xl"} top={"10"}>
           {Page}
         </Text>
         {Page == "Login" ? (
           <Box>
+            <form>
             <Input
               onChange={(event) => {
                 handleChange(event);
               }}
               name="username"
+              defaultValue={""}
               width={"300px"}
               variant={"outline"}
               placeholder="User Name"></Input>
@@ -76,6 +79,7 @@ const navigate=useNavigate()
               onChange={(event) => {
                 handleChange(event);
               }}
+              defaultValue={""}
               name="password"
               width={"300px"}
               variant={"outline"}
@@ -86,7 +90,8 @@ const navigate=useNavigate()
                 handlesubmit();
               }}
               type="submit"
-            />
+              />
+              </form>
           </Box>
         ) : (
           <Box>
@@ -94,6 +99,7 @@ const navigate=useNavigate()
               onChange={(event) => {
                 handleChangesignup(event);
               }}
+              defaultValue={""}
               name="username"
               width={"300px"}
               variant={"outline"}
@@ -102,6 +108,7 @@ const navigate=useNavigate()
               onChange={(event) => {
                 handleChangesignup(event);
               }}
+              defaultValue={""}
               name="password"
               width={"300px"}
               variant={"outline"}
@@ -111,6 +118,7 @@ const navigate=useNavigate()
               onChange={(event) => {
                 handleChangesignup(event);
               }}
+              defaultValue={""}
               name="confrompassword"
               width={"300px"}
               variant={"outline"}

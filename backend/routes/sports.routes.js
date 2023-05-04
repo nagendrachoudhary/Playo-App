@@ -105,4 +105,13 @@ sportsRouter.post('/sports/responserequest',auth,async(req,res)=>{
         res.status(404).send(err.message)
     }
 })
+sportsRouter.get('/sports/table/players:id',auth,async(req,res)=>{
+    try{
+        let{id}=req.params
+        res.send("ok")
+    }catch(err){
+        res.status(404).send(err.message)
+    }
+})
+
 module.exports=sportsRouter

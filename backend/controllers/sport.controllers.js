@@ -10,8 +10,9 @@ async function createtable(data){
 async function updatetable(data){
     if(data.type=='accept'){
       let table=await sports.findById({_id:data.tableid})
+      let users=await user.findById(data.userid)
       table.joinedplayers=table.joinedplayers+1
-      table.joinedplayer.push(data)
+      table.joinedplayer.push(users)
        const id =new mongoose.Types.ObjectId(data.userid);
        let index;
        table.requests.map((el,i)=>{
@@ -21,7 +22,6 @@ async function updatetable(data){
       })
        table.requests.splice(index,1)
        await sports.findByIdAndUpdate(data.tableid,{...table})
-      let users=await user.findById(data.userid)
       users.requestedtables.map((el,i)=>{
         if(el.id==data.userid){
         index=i

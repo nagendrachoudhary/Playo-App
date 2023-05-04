@@ -28,3 +28,6 @@ export async function getAllReq(){
 export async function responserequest(data){
     return axios.post('/sports/responserequest',data)
 }
+export async function playerInMyTable(id){
+    return axios.get(`/sports/table/players${id}`)
+}
