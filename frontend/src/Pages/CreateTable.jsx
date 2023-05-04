@@ -16,8 +16,8 @@ function CreateTable(props) {
   }
   console.log(form)
   return (
-    <Center h={'100vh'} position={'relative'}>
-      <Box w={'400px'} position={'absolute'} top={'25%'} boxShadow={'dark-lg'}  >
+    <Center h={'100vh'} >
+      <Box w={'400px'}  boxShadow={'dark-lg'}  >
 
         <Input onChange={(event)=>{handlechange(event)}} name="description" placeholder="description"></Input>
         <Input onChange={(event)=>{handlechange(event)}} name="time" type="date"></Input>

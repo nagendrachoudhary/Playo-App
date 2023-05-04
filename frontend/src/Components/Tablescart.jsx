@@ -5,6 +5,7 @@ import { AuthContext } from './../Context/Auth';
 import { useNavigate } from 'react-router-dom';
 
 function Tablescart(props) {
+    
     console.log(props)
     const navigate=  useNavigate()
     const toast=useToast()
@@ -75,7 +76,7 @@ function Tablescart(props) {
             <Text>rating:-{props.rating}</Text>
             </HStack>
             <Button isDisabled={joined.length==0} onClick={()=>{playerintable()}}>Show All Player</Button>
-            <Button colorScheme='blackAlpha' id={props._id} w={'90%'}  m='auto' isDisabled={props.maxplayers==props.joinedplayers||userintable.length>0||joined.length>0}  variant={'solid'}  onClick={()=>{handleclick(props._id)}}>Join</Button>
+            <Button colorScheme='blackAlpha' id={props._id} w={'90%'}  m='auto' isDisabled={props.maxplayers==props.joinedplayers||userintable.length>0||joined.length>0||props.time>Date.now()}  variant={'solid'}  onClick={()=>{handleclick(props._id)}}>Join</Button>
         </Box>
         </Box>
     );
