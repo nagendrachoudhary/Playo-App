@@ -1,5 +1,5 @@
 ## Sports Events App
-
+[DEPLOY LINK](https://playoo.netlify.app/)
 # This app is a platform for sports enthusiasts to find and join sports events near them. With this app, users can browse a list of available events, view details about each event, and join the events they are interested in. The app allows users to create their own events and set a limit on the number of players, as well as view the list of players who have joined the event. It is simple for users to find and join the events they are interested in.
 
 ## Features
@@ -60,4 +60,4 @@
  -  NAGENDRA CHOUDHARY 
  -  [GIT](www.github.com/nagendrachoudhary)
  -  [linkdin](https://www.linkedin.com/in/nagendra-choudhary)
- -  <a href="https://www.instagram.com/mikey.o.1" target="_blank">Instagram</a>
+ -  [Instagram](https://www.instagram.com/mikey.o.1)
